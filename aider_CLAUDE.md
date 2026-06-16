@@ -1,43 +1,29 @@
-# Project Overview
+# Aider Project Context
 
-This project uses Aider for AI-assisted software development.
+Welcome to the **Aider** repository. This project is a specialized AI-powered coding assistant that works directly in your terminal, allowing you to edit code in your local git repository using LLMs.
 
-## Objectives
+## Project Goal
+To provide a seamless, high-performance CLI interface for AI to write, edit, and refactor code, while maintaining proper version control (Git) integration.
 
-- Improve repository understanding
-- Improve multi-file editing accuracy
-- Reduce token usage
-- Improve context selection
-- Improve developer productivity
+## Key Principles for AI Assistants
+When modifying or extending this codebase, please keep these priorities in mind:
 
-## Development Rules
+1.  **Git-Centric Workflow:** Every change must respect Git. Aider automatically commits changes to the repository, so ensure all file operations are compatible with standard Git workflows.
+2.  **Terminal-First UX:** The interface and logic should be optimized for terminal usage. Keep output clean, concise, and informative.
+3.  **LLM Context Management:** Efficiently manage the "context window" when passing files to the AI. Only send relevant code snippets to minimize token usage while maintaining accuracy.
+4.  **Robust Error Handling:** Since this tool interacts directly with user code, it must handle file I/O errors, git conflicts, and LLM failures gracefully without crashing the user's workflow.
+5.  **Code Safety:** When performing automated edits, prioritize safety. Use dry-runs or validation checks whenever possible.
 
-- Minimize context usage where possible
-- Modify only files required for the task
-- Avoid unnecessary code generation
-- Follow existing project conventions
+## Key Architectural Components
+*   `aider/`: The core logic, including LLM interaction, git management, and command parsing.
+*   `aider/coders/`: Logic for handling different coding tasks and conversation strategies.
+*   `aider/models/`: Configuration and adapters for different LLM providers.
+*   `tests/`: Comprehensive test suite to ensure no regressions in code editing capabilities.
 
-## Code Quality
+## Workflow Guidelines
+*   **Testing:** Run the full test suite before proposing significant architectural changes.
+*   **Performance:** Aider is used by developers to speed up workflows. Ensure new features do not introduce latency.
+*   **Compliance:** Maintain compatibility with existing Aider/aider features while adding custom improvements.
 
-- Production-ready code only
-- Preserve existing functionality
-- Avoid breaking API contracts
-- Prefer maintainable solutions
-
-## Repository Understanding
-
-Prioritize:
-
-1. Relevant files only
-2. Architectural consistency
-3. Clear reasoning
-4. Minimal code changes
-
-## When Making Changes
-
-Always explain:
-
-- Why changes are required
-- Files impacted
-- Risks
-- Validation method
+---
+*Last updated: 2026-06-16*
